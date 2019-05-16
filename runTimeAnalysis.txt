@@ -1,0 +1,67 @@
+Assume the length of the dataset calls is N and the length of the dataset texts is M
+
+Task 0:
+O(1)
+because the run time does not change as a function of input
+
+Task 1:
+O(M+N)
+
+Task 2:
+# for loop 1
+for item in calls:
+    if item[0] not in records:
+        records[item[0]] = int(item[3])
+    else:
+        records[item[0]] += int(item[3])
+
+# for loop 2
+for item in calls:
+    if item[1] not in records:
+        records[item[1]] = int(item[3])
+    else:
+        records[item[1]] += int(item[3])
+# for loop 3
+record_longest_duration = [num for num, duration in records.items() if duration == longest_duration]
+
+the code iterate N times for the first loop and M times for the second loop, and M+N times for loop 3.
+Thus,
+O(2M+2N)
+
+Task 3:
+Part A: there are 2 for loops, the first loop iterates the calls dataset,
+and the second loop iterates the selected Bangalore calls dataset (assume it has length Y)
+Thus,
+O(N+Y)
+
+Part B: there is 1 for loop, it iterates the selected dataset that calls and answers both in Bangalore.
+We assume this dataset has length Z.
+Thus,
+O(Z)
+
+
+Task 4: 6 for loops in this task
+callout_numbers = [number[0] for number in calls] # loop through calls, O(N)
+answer_numbers = [number[1] for number in calls] # loop through calls, O(N)
+textsent_numbers = [number[0] for number in texts] # loop through texts, O(M)
+textreceive_numbers = [number[1] for number in texts] # loop through texts, O(M)
+
+
+# loop through the callout_numbers and find the elements that are not in the combined set.
+for num in callout_numbers:
+    if num not in other_three_set:
+        telemarketers.append(num)
+
+The length of callout_numbers is N,
+thus, O(N)
+
+# make the numbers printing one line at a time
+telemarketers_string = ''
+
+for num in telemarketers:
+    telemarketers_string += '{}\n'.format(num)
+
+Assume the selected telemarketers' length is Z,
+Thus, O(Z)
+
+Finally, the overall runtime for this task is O(3N+2M+Z)
