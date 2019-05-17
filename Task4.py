@@ -25,7 +25,7 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-telemarketers = []
+telemarketers = set()
 
 # get a list of numbers calling out, a list of numbers answering calls,
 # a list of numbers sent out texts, and a list of numbers receiving text
@@ -40,16 +40,17 @@ other_three_set = set(answer_numbers + textsent_numbers + textreceive_numbers)
 # loop through the callout_numbers and find the elements that are not in the combined set.
 for num in callout_numbers:
     if num not in other_three_set:
-        telemarketers.append(num)
+        telemarketers.add(num)
 
 
 # remove duplicates and sort the list
-telemarketers_set = sorted(set(telemarketers))
+unique_telemarketers = sorted(telemarketers)
 
 # make the numbers printing one line at a time
 telemarketers_string = ''
 
-for num in telemarketers:
+for num in unique_telemarketers:
     telemarketers_string += '{}\n'.format(num)
 
 print('These numbers could be telemarketers:\n' + telemarketers_string)
+

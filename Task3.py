@@ -48,17 +48,26 @@ The percentage should have 2 decimal digits
 
 # Part A
 Bangalore_calls_list = []
+
 # find all Bangalore calls
 for item in calls:
     if item[0][0:5] == '(080)':
-        Bangalore_calls_list.append(item[0])
+        if item[1][0] == '7' or item[1][0] == '8' or item[1][0] =='9':
+            Bangalore_calls_list.append(item[1][0:4])
+        elif item[1][0] == '(':
+            end_code = item[1].index(')')
+            code = item[1][1:end_code]
+            Bangalore_calls_list.append(code)
+        else:
+            Bangalore_calls_list.append(item[1][:3])
+
 
 # remove duplicates by using set and sorted
-Bangalore_calls_set = sorted(set(Bangalore_calls_list))
+Bangalore_unique_calls = sorted(set(Bangalore_calls_list))
 
 # make the codes one line at a time
 Bangalore_calls_string = ''
-for item in Bangalore_calls_set:
+for item in Bangalore_unique_calls:
     Bangalore_calls_string += '{}\n'.format(item)
 
 print("The numbers called by people in Bangalore have codes:\n" + Bangalore_calls_string)

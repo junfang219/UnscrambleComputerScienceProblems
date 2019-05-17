@@ -6,38 +6,23 @@ because the run time does not change as a function of input
 
 Task 1:
 O(M+N)
+two for loops iterate dataset calls and texts
 
 Task 2:
-# for loop 1
-for item in calls:
-    if item[0] not in records:
-        records[item[0]] = int(item[3])
-    else:
-        records[item[0]] += int(item[3])
-
-# for loop 2
-for item in calls:
-    if item[1] not in records:
-        records[item[1]] = int(item[3])
-    else:
-        records[item[1]] += int(item[3])
-# for loop 3
-record_longest_duration = [num for num, duration in records.items() if duration == longest_duration]
-
-the code iterate N times for the first loop and M times for the second loop, and M+N times for loop 3.
-Thus,
-O(2M+2N)
+There are three for loops iterating the call dateset, and 2 built-in functions (e.g., max and print)
+O(3N+2), this can be approximated as O(n)
 
 Task 3:
 Part A: there are 2 for loops, the first loop iterates the calls dataset,
-and the second loop iterates the selected Bangalore calls dataset (assume it has length Y)
+and the second loop iterates the selected Bangalore calls dataset (the worst case is the same as the calls set).
+In addition, two built-in functions (sorted, print)
 Thus,
-O(N+Y)
+O(2N+2), this can be approximated as O(2n)
 
 Part B: there is 1 for loop, it iterates the selected dataset that calls and answers both in Bangalore.
-We assume this dataset has length Z.
+The worst case is the selected set is the same length as the calls set. In addition,there are 2 built-in functions
 Thus,
-O(Z)
+O(2N+2), this can be approximated as O(2n)
 
 
 Task 4: 6 for loops in this task
@@ -52,6 +37,7 @@ for num in callout_numbers:
     if num not in other_three_set:
         telemarketers.append(num)
 
+Because other_three_set is a set and test whether an element in a set takes constant time.
 The length of callout_numbers is N,
 thus, O(N)
 
@@ -61,7 +47,9 @@ telemarketers_string = ''
 for num in telemarketers:
     telemarketers_string += '{}\n'.format(num)
 
-Assume the selected telemarketers' length is Z,
-Thus, O(Z)
+The worst case senario is the length of telemarketers is the same as the length of the calls.
+Thus, O(N)
 
-Finally, the overall runtime for this task is O(3N+2M+Z)
+There are two built-in functions, sorted and print.
+
+Finally, the overall runtime for this task is O(4N+2M +2), which can be approximated as O(4n+2m)
