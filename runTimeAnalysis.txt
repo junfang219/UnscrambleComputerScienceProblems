@@ -13,16 +13,16 @@ There are three for loops iterating the call dateset, and 2 built-in functions (
 O(3N+2), this can be approximated as O(n)
 
 Task 3:
-Part A: there are 2 for loops, the first loop iterates the calls dataset,
-and the second loop iterates the selected Bangalore calls dataset (the worst case is the same as the calls set).
-In addition, two built-in functions (sorted, print)
+Part A: there are 2 for loops, the first loop iterates the calls dataset, <-- O(N)
+and the second loop iterates the selected Bangalore calls dataset (the worst case is the same as the calls set). <-- O(N)
+In addition, two built-in functions (sorted <-- O(NlogN), print <-- O(1))
 Thus,
-O(2N+2), this can be approximated as O(2n)
+O(2N+ NlogN + 1), this can be approximated as O(NlogN)
 
-Part B: there is 1 for loop, it iterates the selected dataset that calls and answers both in Bangalore.
+Part B: there is 1 for loop, it iterates the selected dataset that calls and answers both in Bangalore. <-- O(N)
 The worst case is the selected set is the same length as the calls set. In addition,there are 2 built-in functions
 Thus,
-O(2N+2), this can be approximated as O(2n)
+O(N+2), this can be approximated as O(n)
 
 
 Task 4: 6 for loops in this task
@@ -50,6 +50,6 @@ for num in telemarketers:
 The worst case senario is the length of telemarketers is the same as the length of the calls.
 Thus, O(N)
 
-There are two built-in functions, sorted and print.
+There are two built-in functions, sorted <-- O(NlogN) and print <-- O(1).
 
-Finally, the overall runtime for this task is O(4N+2M +2), which can be approximated as O(4n+2m)
+Finally, the overall runtime for this task is O(4N + 2M + NlogN + 1), which can be approximated as O(NlogN + M)

@@ -22,10 +22,10 @@ Print a message:
 phone_numbers_set = set()
 
 for item in texts:
-    phone_numbers_set.update(item[0:1])
+    phone_numbers_set.update(item[0:2])
 
 for item in calls:
-    phone_numbers_set.update(item[0:1])
+    phone_numbers_set.update(item[0:2])
 
 num_unique_phones = len(phone_numbers_set)
 print('There are {} different telephone numbers in the records.'.format(num_unique_phones))
